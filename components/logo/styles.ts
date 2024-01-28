@@ -13,5 +13,6 @@ export const Logo = styled.div`
     p {
         margin-left: 1.19rem;
         font-size: 1.25rem;
+        font-weight: 600;
     }
 `

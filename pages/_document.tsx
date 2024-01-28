@@ -6,12 +6,8 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from 'next/document'
-import { Inter } from '@next/font/google'
-
-const inter = Inter({
-  weight: ['200', '400', '500', '600', '800'],
-  subsets: ['latin']
-})
+import Header from '../components/header'
+import Footer from '../components/footer'
  
 class MyDocument extends Document {
   static async getInitialProps(
@@ -34,8 +30,6 @@ class MyDocument extends Document {
     return initialProps
   }
 
-
- 
   render() {
     return (
       <Html lang="en">

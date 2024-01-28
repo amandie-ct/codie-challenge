@@ -11,24 +11,11 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   background-color: ${({ theme }) => theme.colors.white};
+  font-family: 'Inter', sans-serif;
 }
 
 html, body, #__next {
     height: 100%;
-}
-
-
-::-webkit-scrollbar {
-  width: 10px;  
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d8a47a;
-  border-radius: 6px;
 }
 `
 

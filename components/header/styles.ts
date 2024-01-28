@@ -6,9 +6,18 @@ export const Header = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 5.2rem;
+    border-bottom: 1px solid red;
 `
 
 export const HeaderShortcuts = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-between;
+
+    a {
+        text-decoration: none;
+        color: ${({ theme }) => theme.colors.dark_gray};
+        margin-right: 1.9rem;
+    }
 `

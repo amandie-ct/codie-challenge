@@ -16,6 +16,11 @@ export const Breadcrumbs = styled.div`
   align-items: center;
   font-size: 0.75rem;
   font-weight: 700;
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.light_gray};
+  }
 `
 
 export const Title = styled.h1`

@@ -4,7 +4,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true
   },
-  css: ['@fontsource/inter']
+  // css: ['@fontsource/inter']
 }
 
 module.exports = nextConfig

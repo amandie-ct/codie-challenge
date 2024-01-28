@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import * as Styled from './styles'
 
 interface IBreadcrumbsProps {
@@ -8,7 +9,10 @@ interface IBreadcrumbsProps {
 const Breadcrumbs = ({ title, subtitle }: IBreadcrumbsProps) => {
   return (
     <Styled.Container>
-      <Styled.Breadcrumbs>Home &gt; {title}</Styled.Breadcrumbs>
+      <Styled.Breadcrumbs>
+        <Link href="/">Home</Link>
+        &nbsp; &gt; {title}
+      </Styled.Breadcrumbs>
       <Styled.Title>{title}</Styled.Title>
       <Styled.Subtitle>{subtitle}</Styled.Subtitle>
     </Styled.Container>

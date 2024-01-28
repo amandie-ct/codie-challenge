@@ -2,7 +2,7 @@
 
 const Theme = {
   border: {
-    small_radius: '0.rem',
+    small_radius: '0.5rem',
     regular_radius: '1.875rem'
   },
   shadow: {
@@ -25,8 +25,10 @@ const Theme = {
     white: '#FFF',
     black: '#000',
     red: '#E40F0F',
-    light_pink: '#DF8686',
+    light_pink: 'rgba(223, 134, 134, 0.04)',
+    pink: '#DF8686',
     light_gray: '#EEE',
+    gray: '#747474',
     medium_gray: '#D5D5D5',
     dark_gray: '#1D1D1D'
   },

@@ -11,11 +11,11 @@ const Button = ({
   button_link = '/appointment'
 }: IButtonProps) => {
   return (
-    <Link href={button_link}>
-      <Styled.Button>
+    <Styled.Button>
+      <Link href={button_link}>
         <p>{button_text}</p>
-      </Styled.Button>
-    </Link>
+      </Link>
+    </Styled.Button>
   )
 }
 

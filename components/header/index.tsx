@@ -10,17 +10,16 @@ import Link from 'next/link'
 //     button: ReactNode
 // }
 
-
 const Header = () => {
-
-    return <Styled.Header>
-        <Logo logo_text='Centro Pokémon'/>
-        <Styled.HeaderShortcuts>
-            <Link href="/about">Quem somos</Link>
-            <Button button_text='Agendar consulta'/>
-        </Styled.HeaderShortcuts>
-
+  return (
+    <Styled.Header>
+      <Logo logo_text="Centro Pokémon" />
+      <Styled.HeaderShortcuts>
+        <Link href="/about">Quem somos</Link>
+        <Button button_text="Agendar consulta" />
+      </Styled.HeaderShortcuts>
     </Styled.Header>
+  )
 }
 
 export default Header

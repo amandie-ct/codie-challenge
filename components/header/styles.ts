@@ -7,7 +7,6 @@ export const Header = styled.nav`
     align-items: center;
     justify-content: space-between;
     padding: 0 5.2rem;
-    border-bottom: 1px solid red;
 `
 
 export const HeaderShortcuts = styled.div`

@@ -13,7 +13,11 @@ const Card = ({ title, icon, message }: ICardProps) => {
       <h1>{title}</h1>
       <img src={icon} />
       <p>{message}</p>
-      <Button button_text="Fazer Novo Agendamento" button_link="/appointment" />
+      <Button
+        button_text="Fazer Novo Agendamento"
+        button_link="/appointment"
+        width={12.31}
+      />
     </Styled.CardContainer>
   )
 }

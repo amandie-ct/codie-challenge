@@ -1,18 +1,19 @@
 import styled from 'styled-components'
 
-export const Button = styled.div`
+export const Button = styled.div<{ $width: number }>`
   display: flex;
-  padding: 0 0.56rem;
+  width: ${(props) => props.$width};
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.red};
   font-size: ${({ theme }) => theme.font.sizes.small};
   border-radius: ${({ theme }) => theme.border.regular_radius};
-  min-width: 10.75rem;
   height: 2.625rem;
-
+  padding: 0 0.6rem;
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.colors.white};
+    text-align: center;
+    margin: 0;
   }
 `

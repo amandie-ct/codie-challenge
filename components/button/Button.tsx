@@ -1,20 +1,20 @@
 import Link from 'next/link'
 import * as Styled from './styles'
 
-interface IButtonProps {
+export interface IButtonProps {
   button_text: string
   button_link?: string
+  width: number
 }
 
 const Button = ({
   button_text,
-  button_link = '/appointment'
+  button_link = '/appointment',
+  width
 }: IButtonProps) => {
   return (
-    <Styled.Button>
-      <Link href={button_link}>
-        <p>{button_text}</p>
-      </Link>
+    <Styled.Button $width={width}>
+      <Link href={button_link}>{button_text}</Link>
     </Styled.Button>
   )
 }

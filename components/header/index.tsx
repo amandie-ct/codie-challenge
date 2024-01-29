@@ -16,7 +16,7 @@ const Header = () => {
       <Logo logo_text="Centro Pokémon" />
       <Styled.HeaderShortcuts>
         <Link href="/about">Quem somos</Link>
-        <Button button_text="Agendar consulta" />
+        <Button button_text="Agendar consulta" width={10.75} />
       </Styled.HeaderShortcuts>
     </Styled.Header>
   )

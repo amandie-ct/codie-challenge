@@ -18,22 +18,7 @@ const Appointment = () => {
             console.log(data)
           })}
         >
-          <Styled.FormContainer>
-            <Styled.InputContainer>
-              <Styled.FormLabel htmlFor="name">Nome</Styled.FormLabel>
-              <Styled.FormInput
-                {...register('name')}
-                placeholder="Digite seu nome..."
-              />
-            </Styled.InputContainer>
-            <Styled.InputContainer>
-              <Styled.FormLabel htmlFor="surname">Sobrenome</Styled.FormLabel>
-              <Styled.FormInput
-                {...register('surname')}
-                placeholder="Digite seu sobrenome..."
-              />
-            </Styled.InputContainer>
-          </Styled.FormContainer>
+          <Styled.FormContainer></Styled.FormContainer>
         </form>
       </Styled.Appointment>
     </Styled.Container>

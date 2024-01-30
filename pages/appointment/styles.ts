@@ -4,6 +4,7 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100vh;
 `
 export const Appointment = styled.section`
   display: flex;
@@ -21,4 +22,39 @@ export const FormContainer = styled.div`
   font-family: Inter;
   align-items: center;
   justify-content: space-evenly;
+`
+
+export const AppointmentSummary = styled.section`
+  display: flex;
+  flex-direction: column;
+  color: ${({ theme }) => theme.colors.gray};
+  font-size: 0.5rem;
+  font-weight: 400;
+`
+export const SummaryBlocks = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.87rem;
+  padding-bottom: 0.5rem;
+
+  &:last-child {
+    padding-top: 2.45rem;
+    color: ${({ theme }) => theme.colors.dark_gray};
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+`
+
+export const Label = styled.p`
+  padding-bottom: 0.5rem;
+  color: ${({ theme }) => theme.colors.dark_gray};
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+`
+
+export const SubLabel = styled(Label)`
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.gray};
 `

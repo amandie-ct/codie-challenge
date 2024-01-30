@@ -14,7 +14,6 @@ const FormInput = (props: IFormInputProps) => {
     <Styled.InputContainer>
       <Styled.FormLabel htmlFor={props.name}>{props.label}</Styled.FormLabel>
       <Styled.Input placeholder={props.placeholder} {...field} />
-      <p>{fieldState.invalid ? 'invalid' : 'valid'}</p>
     </Styled.InputContainer>
   )
 }

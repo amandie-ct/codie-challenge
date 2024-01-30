@@ -1,6 +1,8 @@
+import { useEffect } from 'react'
 import Breadcrumbs from '../../components/breadcrumbs'
 import Button from '../../components/button/Button'
 import FormInput from '../../components/formInput'
+import FormSelect from '../../components/formSelect'
 import * as Styled from './styles'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
@@ -58,6 +60,7 @@ const Appointment = () => {
               name="last_name"
             />
           </Styled.FormContainer>
+          <Styled.FormContainer></Styled.FormContainer>
           <Styled.Label>Cadastre seu time</Styled.Label>
           <Styled.SubLabel>Atendemos até 06 pokémons por vez</Styled.SubLabel>
         </form>

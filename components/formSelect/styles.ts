@@ -2,7 +2,15 @@ import styled from 'styled-components'
 
 export const SelectContainer = styled.div`
   position: relative;
-  width: ;
+`
+
+export const SelectLabel = styled.label`
+  padding-bottom: 0.5rem;
+  color: ${({ theme }) => theme.colors.dark_gray};
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 2rem;
 `
 
 export const FormSelect = styled.select`
@@ -15,11 +23,21 @@ export const FormSelect = styled.select`
   color: ${({ theme }) => theme.colors.gray};
   border-radius: ${({ theme }) => theme.border.small_radius};
   border: 1px solid ${({ theme }) => theme.colors.medium_gray};
+  appearance: none;
+  text-transform: capitalize;
+
+  &:focus {
+    outline: none;
+    cursor: pointer;
+  }
 `
 
 export const ArrowIcon = styled.div`
   position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
+  top: 10%;
+  right: 5%;
+  transform: rotate(90deg);
+  font-weight: 300;
+  font-size: 2rem;
+  color: ${({ theme }) => theme.colors.gray};
 `

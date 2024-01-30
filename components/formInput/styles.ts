@@ -13,7 +13,7 @@ export const FormLabel = styled.label`
   margin-top: 2rem;
 `
 
-export const FormInput = styled.input`
+export const Input = styled.input`
   width: 16.56rem;
   height: 2.81rem;
   padding: 0.81rem 0.88rem;

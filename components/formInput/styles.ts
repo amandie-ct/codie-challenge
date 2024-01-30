@@ -20,7 +20,6 @@ export const Input = styled.input`
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
   color: ${({ theme }) => theme.colors.gray};
   border-radius: ${({ theme }) => theme.border.small_radius};
   border: 1px solid ${({ theme }) => theme.colors.medium_gray};

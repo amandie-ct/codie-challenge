@@ -3,9 +3,7 @@ import * as Styled from './styles'
 
 interface IFormSelectProps {
   name: string
-  id: string
   select_label: string
-  placeholder: string
   control?: any
   options?: string[] | undefined
   selected_region?: string
@@ -22,16 +20,13 @@ const FormSelect = (props: IFormSelectProps) => {
   // }
 
   return (
-    <Styled.SelectContainer>
+    <>
       <Styled.Wrapper>
-        <Styled.SelectLabel htmlFor={props.id}>
-          {props.select_label}
-        </Styled.SelectLabel>
+        <Styled.SelectLabel>{props.select_label}</Styled.SelectLabel>
 
         <Styled.FormSelect
           value={value}
           onChange={props.onChange}
-          id={props.id}
           name={props.name}
         >
           <option value="" disabled selected hidden>
@@ -44,10 +39,7 @@ const FormSelect = (props: IFormSelectProps) => {
           ))}
         </Styled.FormSelect>
       </Styled.Wrapper>
-      {/* <Styled.ArrowIcon> */}
-      {/* <p>&gt;</p>
-      </Styled.ArrowIcon> */}
-    </Styled.SelectContainer>
+    </>
   )
 }
 

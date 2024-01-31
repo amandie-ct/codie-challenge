@@ -13,7 +13,7 @@ export interface ICity {
 }
 
 const LocationSelect = () => {
-  const [selectedRegion, setSelectedRegion] = useState('kanto')
+  const [selectedRegion, setSelectedRegion] = useState('')
   const {
     data: regions,
     isLoading,
@@ -35,13 +35,8 @@ const LocationSelect = () => {
   const regionArray = regions?.map((region) => region.name)
   const cityArray = cities?.map((city) => city.name)
 
-  const handleRegionUpdate = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(event.target.value)
-  }
-
-  const handleRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedRegion(event.target.value)
-    console.log(selectedRegion)
+  const handleRegionUpdate = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedRegion(e.target.value)
   }
 
   if (isLoading) {
@@ -56,19 +51,11 @@ const LocationSelect = () => {
     <>
       <FormSelect
         name="region"
-        id="region_select"
-        placeholder="Selecione sua região"
         select_label="Região"
         options={regionArray}
         onChange={handleRegionUpdate}
       />
-      <FormSelect
-        name="city"
-        id="city_select"
-        placeholder="Selecione sua cidade"
-        select_label="Cidade"
-        options={cityArray}
-      />
+      <FormSelect name="city" select_label="Cidade" options={cityArray} />
     </>
   )
 }

@@ -38,14 +38,12 @@ const SelectPokemon = () => {
 
   return (
     <>
-      <>
+      <Styled.Wrapper>
         <Styled.Title>Cadastre seu time</Styled.Title>
         <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle>
-      </>
+      </Styled.Wrapper>
       <FormSelect
         name="pokemon"
-        id="pokemon_select"
-        placeholder="Selecione seu Pokémon"
         select_label="Pokémon"
         options={pokemonArray}
         onChange={handlePokemonChange}

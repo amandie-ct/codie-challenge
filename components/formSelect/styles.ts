@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const SelectContainer = styled.div`
-  position: relative;
-`
+// export const SelectContainer = styled.div`
+//   position: relative;
+// `
 
 export const SelectLabel = styled.label`
   padding-bottom: 0.5rem;

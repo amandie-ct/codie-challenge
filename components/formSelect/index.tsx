@@ -9,22 +9,22 @@ interface IFormSelectProps {
   options?: string[] | undefined
   selected_region?: string
   selected_city?: string
-  getData?: Function
+  onChange?: any
 }
 
 const FormSelect = (props: IFormSelectProps) => {
   const [value, setValue] = useState('')
 
-  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const newValue = event.target.value
-    setValue(newValue)
-  }
+  // const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  //   const newValue = event.target.value
+  //   setValue(newValue)
+  // }
 
   return (
     <Styled.SelectContainer>
       <Styled.SelectLabel>{props.select_label}</Styled.SelectLabel>
 
-      <Styled.FormSelect value={value} onChange={handleChange}>
+      <Styled.FormSelect value={value} onChange={props.onChange}>
         <option value="" disabled>
           {`Selecione sua ${props.select_label}`}
         </option>

@@ -1,13 +1,19 @@
-import { ChangeEvent } from 'react'
 import FormSelect from '../formSelect'
 import { useQuery } from '@tanstack/react-query'
-import { fetchRegions } from '../../pages/api'
+import { fetchRegions, fetchCitiesByRegion } from '../../pages/api'
+import { useState } from 'react'
 export interface IRegion {
   name: string
   url: string
 }
 
+export interface ICity {
+  name: string
+  url: string
+}
+
 const LocationSelect = () => {
+  const [selectedRegion, setSelectedRegion] = useState('kanto')
   const {
     data: regions,
     isLoading,
@@ -17,7 +23,22 @@ const LocationSelect = () => {
     queryKey: ['region']
   })
 
+  const {
+    data: cities,
+    isLoading: isLoadingCities,
+    isError: isErrorCities
+  } = useQuery<ICity[], Error>({
+    queryFn: () => fetchCitiesByRegion(selectedRegion),
+    queryKey: ['city']
+  })
+
   const regionArray = regions?.map((region) => region.name)
+  const cityArray = cities?.map((city) => city.name)
+
+  const handleRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedRegion(event.target.value)
+    console.log(selectedRegion)
+  }
 
   if (isLoading) {
     return <p>Carregando...</p>
@@ -34,12 +55,13 @@ const LocationSelect = () => {
         placeholder="Selecione sua região"
         select_label="Região"
         options={regionArray}
+        onChange={handleRegionChange}
       />
       <FormSelect
         name="city"
         placeholder="Selecione sua cidade"
         select_label="Cidade"
-        // options={}
+        options={cityArray}
       />
     </>
   )

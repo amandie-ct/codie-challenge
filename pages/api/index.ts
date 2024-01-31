@@ -2,14 +2,14 @@ import axios from 'axios'
 
 const fetchRegions = async () => {
   const response = await axios.get('https://pokeapi.co/api/v2/region/')
-  return response.data
+  return response.data.results
 }
 
 export { fetchRegions }
 
-const fetchCities = async (region: string) => {
-  const response = await axios.get(`https://pokeapi.co/api/v2/${region}`)
-  return response.data
+const fetchCitiesByRegion = async (region: string) => {
+  const response = await axios.get(`https://pokeapi.co/api/v2/region/${region}`)
+  return response.data.locations
 }
 
-export { fetchCities }
+export { fetchCitiesByRegion }

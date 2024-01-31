@@ -6,8 +6,6 @@ import Document, {
   DocumentContext,
   DocumentInitialProps
 } from 'next/document'
-import Header from '../components/header'
-import Footer from '../components/footer'
 
 class MyDocument extends Document {
   static async getInitialProps(

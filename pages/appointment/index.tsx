@@ -60,14 +60,14 @@ const Appointment = () => {
             />
           </Styled.FormContainer>
           <Styled.FormContainer></Styled.FormContainer>
-          <Styled.Label>Cadastre seu time</Styled.Label>
-          <Styled.SubLabel>Atendemos até 06 pokémons por vez</Styled.SubLabel>
 
           <Styled.FormContainer>
             <LocationSelect />
           </Styled.FormContainer>
-        </form>
 
+          <Styled.Label>Cadastre seu time</Styled.Label>
+          <Styled.SubLabel>Atendemos até 06 pokémons por vez</Styled.SubLabel>
+        </form>
         <Styled.AppointmentSummary>
           <hr />
           <Styled.SummaryBlocks>

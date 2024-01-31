@@ -3,6 +3,7 @@ import * as Styled from './styles'
 
 interface IFormSelectProps {
   name: string
+  id: string
   select_label: string
   placeholder: string
   control?: any
@@ -22,21 +23,29 @@ const FormSelect = (props: IFormSelectProps) => {
 
   return (
     <Styled.SelectContainer>
-      <Styled.SelectLabel>{props.select_label}</Styled.SelectLabel>
+      <Styled.Wrapper>
+        <Styled.SelectLabel htmlFor={props.id}>
+          {props.select_label}
+        </Styled.SelectLabel>
 
-      <Styled.FormSelect value={value} onChange={props.onChange}>
-        <option value="" disabled>
-          {`Selecione sua ${props.select_label}`}
-        </option>
-        {props.options?.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
+        <Styled.FormSelect
+          value={value}
+          onChange={props.onChange}
+          id={props.id}
+        >
+          <option value="" disabled>
+            {`Selecione sua ${props.select_label}`}
           </option>
-        ))}
-      </Styled.FormSelect>
-      <Styled.ArrowIcon>
-        <p>&gt;</p>
-      </Styled.ArrowIcon>
+          {props.options?.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </Styled.FormSelect>
+      </Styled.Wrapper>
+      {/* <Styled.ArrowIcon> */}
+      {/* <p>&gt;</p>
+      </Styled.ArrowIcon> */}
     </Styled.SelectContainer>
   )
 }

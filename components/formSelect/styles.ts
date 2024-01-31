@@ -12,6 +12,10 @@ export const SelectLabel = styled.label`
   font-weight: 700;
   margin-top: 2rem;
 `
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export const FormSelect = styled.select`
   width: 16.56rem;
@@ -34,9 +38,9 @@ export const FormSelect = styled.select`
 
 export const ArrowIcon = styled.div`
   position: absolute;
-  top: 10%;
-  right: 5%;
   transform: rotate(90deg);
+  top: -20;
+  right: 50;
   font-weight: 300;
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.gray};

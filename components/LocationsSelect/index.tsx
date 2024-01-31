@@ -52,6 +52,7 @@ const LocationSelect = () => {
     <>
       <FormSelect
         name="region"
+        id="region_select"
         placeholder="Selecione sua região"
         select_label="Região"
         options={regionArray}
@@ -59,6 +60,7 @@ const LocationSelect = () => {
       />
       <FormSelect
         name="city"
+        id="city_select"
         placeholder="Selecione sua cidade"
         select_label="Cidade"
         options={cityArray}

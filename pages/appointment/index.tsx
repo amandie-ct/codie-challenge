@@ -1,10 +1,14 @@
-import { useEffect } from 'react'
 import Breadcrumbs from '../../components/breadcrumbs'
 import Button from '../../components/button/Button'
 import FormInput from '../../components/formInput'
-import FormSelect from '../../components/formSelect'
 import * as Styled from './styles'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import LocationSelect, {
+  ILocationSelectProps,
+  IRegion
+} from '../../components/LocationsSelect'
+import { GetServerSideProps } from 'next'
+import axios from 'axios'
 
 type FormFields = {
   first_name: string
@@ -63,6 +67,10 @@ const Appointment = () => {
           <Styled.FormContainer></Styled.FormContainer>
           <Styled.Label>Cadastre seu time</Styled.Label>
           <Styled.SubLabel>Atendemos até 06 pokémons por vez</Styled.SubLabel>
+
+          <Styled.FormContainer>
+            <LocationSelect regions={regions} />
+          </Styled.FormContainer>
         </form>
 
         <Styled.AppointmentSummary>
@@ -95,6 +103,29 @@ const Appointment = () => {
       </Styled.Appointment>
     </Styled.Container>
   )
+}
+
+export const getServerSideProps: GetServerSideProps<
+  ILocationSelectProps
+> = async () => {
+  try {
+    const response = await axios.get('https://pokeapi.co/api/v2/region/')
+    const regions: IRegion[] = response.data.results
+
+    return {
+      props: {
+        regions
+      }
+    }
+  } catch (error) {
+    console.error('Error fetching data:')
+
+    return {
+      props: {
+        regions: []
+      }
+    }
+  }
 }
 
 export default Appointment

@@ -3,7 +3,7 @@ import Button from '../../components/button/Button'
 import FormInput from '../../components/formInput'
 import * as Styled from './styles'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import LocationSelect from '../../components/LocationsSelect'
+import LocationSelect from '../../components/SelectLocation'
 
 type FormFields = {
   first_name: string

@@ -13,3 +13,10 @@ const fetchCitiesByRegion = async (region: string) => {
 }
 
 export { fetchCitiesByRegion }
+
+const fetchPokemons = async () => {
+  const response = await axios.get('https://pokeapi.co/api/v2/pokemon/')
+  return response.data.results
+}
+
+export { fetchPokemons }

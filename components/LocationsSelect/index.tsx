@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 import axios from 'axios'
 import FormSelect from '../formSelect'
 
@@ -14,16 +14,17 @@ interface ILocationSelectProps {
 
 const LocationSelect = (props: ILocationSelectProps) => {
   const regionNames: string[] = props.regions.map((region) => region.name)
-  const cityNames: string[] = ['cidade 1', 'cidade 2', 'cidade 3']
-  const [selectedRegion, setSelectedRegion] = useState('')
-  const region = 'Kanto'
+  const [cityNames, setCityNames] = useState([])
+  const [region, setRegion] = useState('')
 
-  // fazer o request pra pegar a lista de cidades
-
-  // quando o valor de um select mudar, fazer outro request passando a url como parâmetro pra pegar o array de cidades
-  useEffect(() => {
-    getCityFromRegion()
-  }, [region])
+  const getCityNames = async () => {
+    try {
+      const response = await axios.get(`https://pokeapi.co/api/v2/${region}`)
+      return response.data
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -38,6 +39,7 @@ const LocationSelect = (props: ILocationSelectProps) => {
         placeholder="Selecione sua cidade"
         select_label="Cidade"
         options={cityNames}
+        getData={getCityNames}
       />
     </>
   )

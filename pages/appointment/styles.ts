@@ -45,16 +45,3 @@ export const SummaryBlocks = styled.div`
     font-weight: 600;
   }
 `
-
-export const Label = styled.p`
-  padding-bottom: 0.5rem;
-  color: ${({ theme }) => theme.colors.dark_gray};
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 700;
-`
-
-export const SubLabel = styled(Label)`
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.gray};
-`

@@ -4,6 +4,7 @@ import FormInput from '../../components/formInput'
 import * as Styled from './styles'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import LocationSelect from '../../components/SelectLocation'
+import SelectPokemon from '../../components/SelectPokemon'
 
 type FormFields = {
   first_name: string
@@ -59,14 +60,12 @@ const Appointment = () => {
               name="last_name"
             />
           </Styled.FormContainer>
-          <Styled.FormContainer></Styled.FormContainer>
 
           <Styled.FormContainer>
             <LocationSelect />
           </Styled.FormContainer>
 
-          <Styled.Label>Cadastre seu time</Styled.Label>
-          <Styled.SubLabel>Atendemos até 06 pokémons por vez</Styled.SubLabel>
+          <SelectPokemon />
         </form>
         <Styled.AppointmentSummary>
           <hr />

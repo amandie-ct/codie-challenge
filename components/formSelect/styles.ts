@@ -12,6 +12,7 @@ export const SelectLabel = styled.label`
   font-weight: 700;
   margin-top: 2rem;
 `
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;

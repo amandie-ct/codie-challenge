@@ -32,8 +32,9 @@ const FormSelect = (props: IFormSelectProps) => {
           value={value}
           onChange={props.onChange}
           id={props.id}
+          name={props.name}
         >
-          <option value="" disabled>
+          <option value="" disabled selected hidden>
             {`Selecione sua ${props.select_label}`}
           </option>
           {props.options?.map((option, index) => (

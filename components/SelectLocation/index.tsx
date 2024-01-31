@@ -35,6 +35,10 @@ const LocationSelect = () => {
   const regionArray = regions?.map((region) => region.name)
   const cityArray = cities?.map((city) => city.name)
 
+  const handleRegionUpdate = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(event.target.value)
+  }
+
   const handleRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedRegion(event.target.value)
     console.log(selectedRegion)
@@ -56,7 +60,7 @@ const LocationSelect = () => {
         placeholder="Selecione sua região"
         select_label="Região"
         options={regionArray}
-        onChange={handleRegionChange}
+        onChange={handleRegionUpdate}
       />
       <FormSelect
         name="city"

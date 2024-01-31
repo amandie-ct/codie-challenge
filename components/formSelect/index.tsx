@@ -6,7 +6,7 @@ interface IFormSelectProps {
   select_label: string
   placeholder: string
   control?: any
-  options: string[]
+  options?: string[] | undefined
   selected_region?: string
   selected_city?: string
   getData?: Function
@@ -28,7 +28,7 @@ const FormSelect = (props: IFormSelectProps) => {
         <option value="" disabled>
           {`Selecione sua ${props.select_label}`}
         </option>
-        {props.options.map((option, index) => (
+        {props.options?.map((option, index) => (
           <option key={index} value={option}>
             {option}
           </option>

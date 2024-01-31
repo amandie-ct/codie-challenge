@@ -3,12 +3,7 @@ import Button from '../../components/button/Button'
 import FormInput from '../../components/formInput'
 import * as Styled from './styles'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import LocationSelect, {
-  ILocationSelectProps,
-  IRegion
-} from '../../components/LocationsSelect'
-import { GetServerSideProps } from 'next'
-import axios from 'axios'
+import LocationSelect from '../../components/LocationsSelect'
 
 type FormFields = {
   first_name: string
@@ -69,7 +64,7 @@ const Appointment = () => {
           <Styled.SubLabel>Atendemos até 06 pokémons por vez</Styled.SubLabel>
 
           <Styled.FormContainer>
-            <LocationSelect regions={regions} />
+            <LocationSelect />
           </Styled.FormContainer>
         </form>
 
@@ -103,29 +98,6 @@ const Appointment = () => {
       </Styled.Appointment>
     </Styled.Container>
   )
-}
-
-export const getServerSideProps: GetServerSideProps<
-  ILocationSelectProps
-> = async () => {
-  try {
-    const response = await axios.get('https://pokeapi.co/api/v2/region/')
-    const regions: IRegion[] = response.data.results
-
-    return {
-      props: {
-        regions
-      }
-    }
-  } catch (error) {
-    console.error('Error fetching data:')
-
-    return {
-      props: {
-        regions: []
-      }
-    }
-  }
 }
 
 export default Appointment

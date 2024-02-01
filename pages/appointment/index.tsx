@@ -5,6 +5,7 @@ import * as Styled from './styles'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import LocationSelect from '../../components/SelectLocation'
 import SelectPokemon from '../../components/SelectPokemon'
+import PokemonForm from '../../components/Forma'
 
 type FormFields = {
   first_name: string
@@ -32,10 +33,6 @@ const Appointment = () => {
     mode: 'onChange'
   })
 
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
-    console.log(data)
-  }
-
   return (
     <Styled.Container>
       <Breadcrumbs
@@ -45,7 +42,7 @@ const Appointment = () => {
 
       <Styled.Appointment>
         <h1>Preencha o formulário abaixo para agendar sua consulta</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        {/* <form onSubmit={handleSubmit(onSubmit)}>
           <Styled.FormContainer>
             <FormInput
               control={control}
@@ -66,7 +63,9 @@ const Appointment = () => {
           </Styled.FormContainer>
 
           <SelectPokemon />
-        </form>
+        </form> */}
+
+        <PokemonForm />
         <Styled.AppointmentSummary>
           <hr />
           <Styled.SummaryBlocks>

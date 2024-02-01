@@ -12,7 +12,7 @@ interface IPokemonSelectProps {
   remove: () => void
 }
 
-const PokemonSelect: React.FC<IPokemonSelectProps> = ({
+const APokemonSelect: React.FC<IPokemonSelectProps> = ({
   register,
   options,
   index,
@@ -35,4 +35,4 @@ const PokemonSelect: React.FC<IPokemonSelectProps> = ({
   )
 }
 
-export default PokemonSelect
+export default APokemonSelect

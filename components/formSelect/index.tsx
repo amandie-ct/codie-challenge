@@ -4,7 +4,8 @@ import * as Styled from './styles'
 interface IFormSelectProps {
   name: string
   select_label: string
-  control?: any
+  placeholder: string
+  control: any
   options?: string[] | undefined
   selected_region?: string
   selected_city?: string
@@ -24,9 +25,9 @@ const FormSelect = (props: IFormSelectProps) => {
           onChange={props.onChange}
           name={props.name}
         >
-          {/* <option value="" disabled selected hidden>
-            {`Selecione sua ${props.select_label}`}
-          </option> */}
+          <option value="" disabled selected hidden>
+            {props.placeholder}
+          </option>
           {props.options?.map((option, index) => (
             <option key={index} value={option}>
               {option}

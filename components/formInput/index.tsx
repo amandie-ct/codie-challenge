@@ -9,12 +9,12 @@ interface IFormInputProps {
 }
 
 const FormInput = (props: IFormInputProps) => {
-  const { field, fieldState } = useController(props)
+  const { field } = useController(props)
   return (
-    <Styled.InputContainer>
+    <Styled.Wrapper>
       <Styled.FormLabel htmlFor={props.name}>{props.label}</Styled.FormLabel>
       <Styled.Input placeholder={props.placeholder} {...field} />
-    </Styled.InputContainer>
+    </Styled.Wrapper>
   )
 }
 

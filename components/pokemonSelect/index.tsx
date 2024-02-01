@@ -2,15 +2,16 @@ import FormSelect from '../formSelect'
 import { useQuery } from '@tanstack/react-query'
 import { fetchPokemons } from '../../pages/api'
 import { useState } from 'react'
-import FormButton from '../form/pokemonSelect/Button'
+import FormButton from '../formAddPokemonButton'
 import * as Styled from './styles'
+import Select from 'react-select'
 
 export interface IPokemon {
   name: string
   url: string
 }
 
-const SelectPokemon = () => {
+const PokemonSelect = () => {
   const [selectedPokemon, setSelectedPokemon] = useState('Bulbassaur')
   const {
     data: pokemons,
@@ -36,21 +37,32 @@ const SelectPokemon = () => {
     return <p>Erro ao carregar os dados</p>
   }
 
+  const options = [
+    { value: 'a', label: 'a' },
+    { value: 'b', label: 'b' },
+    { value: 'c', label: 'c' },
+    { value: 'da', label: 'da' }
+  ]
+
   return (
     <>
-      <Styled.Wrapper>
-        <Styled.Title>Cadastre seu time</Styled.Title>
-        <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle>
-      </Styled.Wrapper>
-      <FormSelect
+      {/* <Styled.Wrapper>
+        {/* <Styled.Title>Cadastre seu time</Styled.Title>
+        <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle> */}
+      {/* </Styled.Wrapper> */}
+      {/* <FormSelect
         name="pokemon"
         select_label="Pokémon"
+        placeholder="Selecione seu pokémon"
+        control={control}
         options={pokemonArray}
         onChange={handlePokemonChange}
-      />
+      /> */}
+
+      <Select options={options} />
       <FormButton text="Adicionar novo pokémon ao time..." />
     </>
   )
 }
 
-export default SelectPokemon
+export default PokemonSelect

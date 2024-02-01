@@ -14,7 +14,7 @@ export const FormLabel = styled.label`
 `
 
 export const Input = styled.input`
-  width: 16.56rem;
+  width: 100%;
   height: 2.81rem;
   padding: 0.81rem 0.88rem;
   font-size: 0.875rem;
@@ -27,4 +27,9 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+`
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 16.5625rem;
 `

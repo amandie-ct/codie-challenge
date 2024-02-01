@@ -2,7 +2,7 @@ import FormSelect from '../formSelect'
 import { useQuery } from '@tanstack/react-query'
 import { fetchPokemons } from '../../pages/api'
 import { useState } from 'react'
-import FormButton from '../formButton'
+import FormButton from '../form/pokemonSelect/Button'
 import * as Styled from './styles'
 
 export interface IPokemon {

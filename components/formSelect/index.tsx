@@ -14,11 +14,6 @@ interface IFormSelectProps {
 const FormSelect = (props: IFormSelectProps) => {
   const [value, setValue] = useState('')
 
-  // const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-  //   const newValue = event.target.value
-  //   setValue(newValue)
-  // }
-
   return (
     <>
       <Styled.Wrapper>
@@ -29,9 +24,9 @@ const FormSelect = (props: IFormSelectProps) => {
           onChange={props.onChange}
           name={props.name}
         >
-          <option value="" disabled selected hidden>
+          {/* <option value="" disabled selected hidden>
             {`Selecione sua ${props.select_label}`}
-          </option>
+          </option> */}
           {props.options?.map((option, index) => (
             <option key={index} value={option}>
               {option}

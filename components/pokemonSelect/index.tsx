@@ -11,8 +11,11 @@ export interface IPokemon {
   url: string
 }
 
-const PokemonSelect = () => {
-  const [selectedPokemon, setSelectedPokemon] = useState('Bulbassaur')
+export interface IPokemonProps {
+  value?: any
+}
+
+const PokemonSelect = (props: IPokemonProps) => {
   const {
     data: pokemons,
     isLoading,
@@ -22,46 +25,21 @@ const PokemonSelect = () => {
     queryKey: ['pokemon']
   })
 
-  const pokemonArray = pokemons?.map((pokemon) => pokemon.name)
+  const [selectedPokemon, setSelectedPokemon] = useState('')
+  const pokemonArray = pokemons?.map((pokemon) => {
+    return { value: pokemon.name, label: pokemon.name }
+  })
 
-  const handlePokemonChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedPokemon(event.target.value)
-    console.log(selectedPokemon)
+  const handlePokemonChange = (e) => {
+    setSelectedPokemon(e)
   }
-
-  if (isLoading) {
-    return <p>Carregando...</p>
-  }
-
-  if (isError) {
-    return <p>Erro ao carregar os dados</p>
-  }
-
-  const options = [
-    { value: 'a', label: 'a' },
-    { value: 'b', label: 'b' },
-    { value: 'c', label: 'c' },
-    { value: 'da', label: 'da' }
-  ]
 
   return (
-    <>
-      {/* <Styled.Wrapper>
-        {/* <Styled.Title>Cadastre seu time</Styled.Title>
-        <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle> */}
-      {/* </Styled.Wrapper> */}
-      {/* <FormSelect
-        name="pokemon"
-        select_label="Pokémon"
-        placeholder="Selecione seu pokémon"
-        control={control}
-        options={pokemonArray}
-        onChange={handlePokemonChange}
-      /> */}
-
-      <Select options={options} />
-      <FormButton text="Adicionar novo pokémon ao time..." />
-    </>
+    <Select
+      options={pokemonArray}
+      placeholder="Selecione seu pokémon"
+      onChange={(e) => handlePokemonChange(e?.value)}
+    />
   )
 }
 

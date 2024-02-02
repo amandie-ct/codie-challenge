@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 import * as Styled from './styles'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form'
 import FormInput from '../formInput'
 import FormButton from '../formAddPokemonButton'
 import FormSelect from '../formSelect'
@@ -24,6 +24,9 @@ type FormValues = {
   region: string
   city: string
   pokemon: string[]
+  otherPokemon: {
+    pokemonName: string
+  }[]
   dateTime: Date
 }
 
@@ -34,7 +37,8 @@ export const YupPokemonForm = () => {
       lastName: '',
       region: '',
       city: '',
-      pokemon: [],
+      pokemon: [''],
+      otherPokemon: [{ pokemonName: '' }],
       dateTime: new Date()
     },
     mode: 'onChange'
@@ -50,6 +54,11 @@ const PokemonForm = () => {
     control,
     formState: errors
   } = useForm<FormValues>()
+
+  const { fields, append, remove } = useFieldArray({
+    name: 'otherPokemon',
+    control
+  })
 
   const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) =>
     console.log(data)
@@ -92,7 +101,23 @@ const PokemonForm = () => {
           <Styled.Title>Cadastre seu time</Styled.Title>
           <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle>
         </Styled.Wrapper>
-        <PokemonSelect />
+        <div>
+          {fields.map((field, index) => {
+            return (
+              <div className="form-control" key={field.id}>
+                <PokemonSelect
+                  value={
+                    register(`otherPokemon.${index}.pokemonName` as const).value
+                  }
+                />
+              </div>
+            )
+          })}
+        </div>
+        <FormButton
+          text="Adicionar novo pokémon ao time..."
+          onClick={() => append({ pokemonName: '' })}
+        />
         <Styled.Group>
           <FormSelect
             control={control}
@@ -107,7 +132,6 @@ const PokemonForm = () => {
             placeholder="Selecione um horário"
           />
         </Styled.Group>
-        <FormButton text="Adicionar novo pokémon ao time..." />
       </Styled.Container>
     </form>
   )

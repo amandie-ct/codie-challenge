@@ -2,7 +2,7 @@ import * as Styled from './styles'
 
 interface IFormButtonProps {
   text: string
-  //   onClick: Function
+  onClick: any
 }
 
 const FormButton = (props: IFormButtonProps) => {

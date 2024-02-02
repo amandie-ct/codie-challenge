@@ -1,38 +1,9 @@
 import Breadcrumbs from '../../components/breadcrumbs'
 import Button from '../../components/button/Button'
-import FormInput from '../../components/formInput'
 import * as Styled from './styles'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import LocationSelect from '../../components/SelectLocation'
-import SelectPokemon from '../../components/SelectPokemon'
-import PokemonForm from '../../components/Forma'
-
-type FormFields = {
-  first_name: string
-  last_name: string
-  region?: string
-  city?: string
-  pokemon_name?: string[]
-  pokemon_qty?: number
-  date?: string
-  time?: string
-}
+import PokemonForm from '../../components/form'
 
 const Appointment = () => {
-  const { handleSubmit, control } = useForm<FormFields>({
-    defaultValues: {
-      first_name: '',
-      last_name: '',
-      region: '',
-      city: '',
-      pokemon_name: [],
-      pokemon_qty: 0,
-      date: '',
-      time: ''
-    },
-    mode: 'onChange'
-  })
-
   return (
     <Styled.Container>
       <Breadcrumbs
@@ -42,29 +13,6 @@ const Appointment = () => {
 
       <Styled.Appointment>
         <h1>Preencha o formulário abaixo para agendar sua consulta</h1>
-        {/* <form onSubmit={handleSubmit(onSubmit)}>
-          <Styled.FormContainer>
-            <FormInput
-              control={control}
-              label="Nome"
-              placeholder="Digite seu nome"
-              name="first_name"
-            />
-            <FormInput
-              control={control}
-              label="Sobrenome"
-              placeholder="Digite seu sobrenome"
-              name="last_name"
-            />
-          </Styled.FormContainer>
-
-          <Styled.FormContainer>
-            <LocationSelect />
-          </Styled.FormContainer>
-
-          <SelectPokemon />
-        </form> */}
-
         <PokemonForm />
         <Styled.AppointmentSummary>
           <hr />

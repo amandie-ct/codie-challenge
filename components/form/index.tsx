@@ -5,7 +5,6 @@ import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form'
 import FormInput from '../formInput'
 import FormButton from '../formAddPokemonButton'
 import FormSelect from '../formSelect'
-import PokemonSelect from '../pokemonSelect'
 
 const schema = yup.object({
   name: yup.string().required('Nome é obrigatório'),
@@ -50,7 +49,6 @@ const PokemonForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     control,
     formState: errors
   } = useForm<FormValues>()
@@ -69,31 +67,31 @@ const PokemonForm = () => {
         <Styled.Group>
           <FormInput
             label="Nome"
-            name="name"
             placeholder="Digite seu nome"
             control={control}
+            {...register('name')}
           />
 
           <FormInput
             label="Sobrenome"
-            name="lastName"
             placeholder="Digite seu sobrenome"
             control={control}
+            {...register('lastName')}
           />
         </Styled.Group>
 
         <Styled.Group>
           <FormSelect
             control={control}
-            name="region"
             select_label="Região"
             placeholder="Selecione sua região"
+            {...register('region')}
           />
           <FormSelect
             control={control}
-            name="city"
             select_label="Cidade"
             placeholder="Selecione sua cidade"
+            {...register('city')}
           />
         </Styled.Group>
 
@@ -101,19 +99,20 @@ const PokemonForm = () => {
           <Styled.Title>Cadastre seu time</Styled.Title>
           <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle>
         </Styled.Wrapper>
-        <div>
+        {/* <div>
           {fields.map((field, index) => {
             return (
               <div className="form-control" key={field.id}>
                 <PokemonSelect
-                  value={
-                    register(`otherPokemon.${index}.pokemonName` as const).value
+                  onChange={
+                    register(`otherPokemon.${index}.pokemonName` as const)
+                      .onChange
                   }
                 />
               </div>
             )
           })}
-        </div>
+        </div> */}
         <FormButton
           text="Adicionar novo pokémon ao time..."
           onClick={() => append({ pokemonName: '' })}

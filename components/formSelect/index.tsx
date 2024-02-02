@@ -20,11 +20,7 @@ const FormSelect = (props: IFormSelectProps) => {
       <Styled.Wrapper>
         <Styled.SelectLabel>{props.select_label}</Styled.SelectLabel>
 
-        <Styled.FormSelect
-          value={value}
-          onChange={props.onChange}
-          name={props.name}
-        >
+        <Styled.FormSelect onChange={props.onChange} name={props.name}>
           <option value="" disabled selected hidden>
             {props.placeholder}
           </option>

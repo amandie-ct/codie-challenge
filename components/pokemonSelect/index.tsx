@@ -1,8 +1,6 @@
-import FormSelect from '../formSelect'
 import { useQuery } from '@tanstack/react-query'
 import { fetchPokemons } from '../../pages/api'
 import { useState } from 'react'
-import FormButton from '../formAddPokemonButton'
 import * as Styled from './styles'
 import Select from 'react-select'
 
@@ -13,6 +11,7 @@ export interface IPokemon {
 
 export interface IPokemonProps {
   value?: any
+  onChange?: any
 }
 
 const PokemonSelect = (props: IPokemonProps) => {

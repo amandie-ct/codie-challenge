@@ -5,7 +5,6 @@ interface IFormSelectProps {
   name: string
   select_label: string
   placeholder: string
-  control: any
   options?: string[] | undefined
   selected_region?: string
   selected_city?: string

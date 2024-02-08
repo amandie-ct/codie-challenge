@@ -1,5 +1,4 @@
 import Breadcrumbs from '../../components/breadcrumbs'
-import Button from '../../components/button/Button'
 import * as Styled from './styles'
 import PokemonForm from '../../components/form'
 
@@ -14,6 +13,7 @@ const Appointment = () => {
       <Styled.Appointment>
         <h1>Preencha o formulário abaixo para agendar sua consulta</h1>
         <PokemonForm />
+
         <Styled.AppointmentSummary>
           <hr />
           <Styled.SummaryBlocks>
@@ -38,7 +38,6 @@ const Appointment = () => {
           </p>
           <Styled.SummaryBlocks>
             <p>Valor total: R$ 72,10</p>
-            <Button button_text="Concluir Agendamento" width={11.4} />
           </Styled.SummaryBlocks>
         </Styled.AppointmentSummary>
       </Styled.Appointment>

@@ -98,10 +98,19 @@ const PokemonForm = () => {
           </Styled.Group>
 
           <Styled.Group>
-            <FormSelect
-              select_label="Região"
-              placeholder="Selecione sua região"
-              {...register('region')}
+            <Controller
+              name="region"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  options={[
+                    { value: 'chocolate', label: 'Chocolate' },
+                    { value: 'strawberry', label: 'Strawberry' },
+                    { value: 'vanilla', label: 'Vanilla' }
+                  ]}
+                />
+              )}
             />
             <FormSelect
               select_label="Cidade"
@@ -114,6 +123,20 @@ const PokemonForm = () => {
             <Styled.Title>Cadastre seu time</Styled.Title>
             <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle>
           </Styled.Wrapper>
+          <Controller
+            name="firstPokemon"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={[
+                  { value: 'chocolate', label: 'Chocolate' },
+                  { value: 'strawberry', label: 'Strawberry' },
+                  { value: 'vanilla', label: 'Vanilla' }
+                ]}
+              />
+            )}
+          />
           {/* <div>
           {fields.map((field, index) => {
             return (

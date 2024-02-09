@@ -3,11 +3,13 @@ import * as Styled from './styles'
 // import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, useForm } from 'react-hook-form'
 import FormButton from '../formAddPokemonButton'
-import FormSelect from '../formSelect'
 import Button from '../button/Button'
 import Select from 'react-select'
 import { DevTool } from '@hookform/devtools'
 import { useRegionData } from '../../hooks/useRegionData'
+import { useLocationData } from '../../hooks/useCityData'
+import { useState } from 'react'
+import { usePokemonData } from '../../hooks/usePokemonData'
 
 // const schema = yup.object({
 //   name: yup.string().required('Nome é obrigatório'),
@@ -33,23 +35,9 @@ type FormValues = {
   time: string
 }
 
-// export const YupPokemonForm = () => {
-//   const form = useForm<FormValues>({
-//     defaultValues: {
-//       name: '',
-//       lastName: '',
-//       region: '',
-//       city: '',
-//       pokemon: [''],
-//       otherPokemon: [{ pokemonName: '' }],
-//       dateTime: new Date()
-//     },
-//     mode: 'onChange'
-//     // resolver: yupResolver(schema)
-//   })
-// }
-
 const PokemonForm = () => {
+  const [selectedRegion, setSelectedRegion] = useState<any>()
+
   const form = useForm<FormValues>({
     defaultValues: {
       firstName: '',
@@ -74,6 +62,10 @@ const PokemonForm = () => {
 
   const regionOptions = useRegionData()?.map((region) => {
     return { value: region, label: region }
+  })
+
+  const pokemonOptions = usePokemonData()?.map((pokemon) => {
+    return { value: pokemon, label: pokemon }
   })
 
   return (
@@ -103,73 +95,89 @@ const PokemonForm = () => {
           </Styled.Group>
 
           <Styled.Group>
-            <Controller
-              name="region"
-              control={control}
-              render={({ field }) => (
-                <Select {...field} options={regionOptions} />
-              )}
-            />
-            <FormSelect
-              select_label="Cidade"
-              placeholder="Selecione sua cidade"
-              {...register('city')}
-            />
+            <Styled.InputContainer>
+              <Styled.FormLabel htmlFor="region">Região</Styled.FormLabel>
+              <Controller
+                name="region"
+                control={control}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={regionOptions}
+                    onChange={(option) => setSelectedRegion(option)}
+                    placeholder="Selecione sua região"
+                  />
+                )}
+              />
+            </Styled.InputContainer>
+            <Styled.InputContainer>
+              <Styled.FormLabel htmlFor="city">Cidade</Styled.FormLabel>
+              <Controller
+                name="city"
+                control={control}
+                render={({ field }) => (
+                  <Select {...field} placeholder="Selecione sua cidade" />
+                )}
+              />
+            </Styled.InputContainer>
           </Styled.Group>
 
           <Styled.Wrapper>
             <Styled.Title>Cadastre seu time</Styled.Title>
             <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle>
           </Styled.Wrapper>
-          {/* <Controller
-            name="firstPokemon"
-            control={control}
-            render={({ field }) => <Select {...field} options={} />}
-          /> */}
-          {/* <div>
-          {fields.map((field, index) => {
-            return (
-              <div className="form-control" key={field.id}>
-                <PokemonSelect
-                  onChange={
-                    register(`otherPokemon.${index}.pokemonName` as const)
-                      .onChange
-                  }
-                />
-              </div>
-            )
-          })}
-        </div> */}
-          {/* <FormButton
-          text="Adicionar novo pokémon ao time..."
-          onClick={() => append({ pokemonName: '' })}
-        /> */}
-          <Styled.Group>
-            {/* <FormSelect
-            name="dateTime"
-            select_label="Data para Atendimento"
-            placeholder="Selecione uma data"
-          />
-          <FormSelect
-            name="time"
-            select_label="Horário de Atendimento"
-            placeholder="Selecione um horário"
-          /> */}
 
-            {/* <Controller
-              name="time"
+          <Styled.Group>
+            <Styled.FormLabel htmlFor="firstPokemon">
+              Pokémon 01
+            </Styled.FormLabel>
+            <Controller
+              name="firstPokemon"
               control={control}
               render={({ field }) => (
                 <Select
                   {...field}
-                  options={[
-                    { value: 'chocolate', label: 'Chocolate' },
-                    { value: 'strawberry', label: 'Strawberry' },
-                    { value: 'vanilla', label: 'Vanilla' }
-                  ]}
+                  placeholder="Selecione seu pokémon"
+                  options={pokemonOptions}
                 />
               )}
-            /> */}
+            />
+          </Styled.Group>
+
+          <Styled.Group>
+            <Styled.InputContainer>
+              <Styled.FormLabel htmlFor="date">
+                Data de atendimento
+              </Styled.FormLabel>
+              <Controller
+                name="date"
+                control={control}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    placeholder="Selecione uma data"
+                    options={pokemonOptions}
+                  />
+                )}
+              />
+            </Styled.InputContainer>
+
+            <Styled.InputContainer>
+              <Styled.FormLabel htmlFor="time">
+                Horário de atendimento
+              </Styled.FormLabel>
+              <Controller
+                name="time"
+                control={control}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    placeholder="Selecione um horário"
+                    options={pokemonOptions}
+                  />
+                )}
+              />
+            </Styled.InputContainer>
           </Styled.Group>
         </Styled.Container>
         <Button

@@ -1,19 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchRegions } from '../pages/api'
-
 export interface IRegion {
   name: string
   url: string
 }
-
-// const {
-//   data: regions,
-//   isLoading,
-//   isError
-// } = useQuery<IRegion[]>({
-//   queryFn: () => fetchRegions(),
-//   queryKey: ['region']
-// })
 
 export const useRegionData = () => {
   const {

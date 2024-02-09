@@ -17,6 +17,7 @@ const Card = ({ title, icon, message }: ICardProps) => {
         button_text="Fazer Novo Agendamento"
         button_link="/appointment"
         width={12.31}
+        type="button"
       />
     </Styled.CardContainer>
   )

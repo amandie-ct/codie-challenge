@@ -20,3 +20,17 @@ const fetchPokemons = async () => {
 }
 
 export { fetchPokemons }
+
+const fetchDates = async () => {
+  const response = await axios.get('https://localhost:3000/api/date')
+  return response.data
+}
+
+export { fetchDates }
+
+const fetchTime = async () => {
+  const response = await axios.get('https://localhost:3000/api/time')
+  return response.data
+}
+
+export { fetchTime }

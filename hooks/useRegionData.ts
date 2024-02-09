@@ -6,20 +6,16 @@ export interface IRegion {
   url: string
 }
 
-const {
-  data: regions,
-  isLoading,
-  isError
-} = useQuery<IRegion[], Error>({
-  queryFn: () => fetchRegions(),
-  queryKey: ['region']
-})
+// const {
+//   data: regions,
+//   isLoading,
+//   isError
+// } = useQuery<IRegion[]>({
+//   queryFn: () => fetchRegions(),
+//   queryKey: ['region']
+// })
 
-const regionArray = regions?.map((region) => {
-  return { value: region.name, label: region.name }
-})
-
-const useRegionData = () => {
+export const useRegionData = () => {
   const {
     isLoading,
     data: regions,
@@ -32,8 +28,7 @@ const useRegionData = () => {
     queryFn: () => fetchRegions()
   })
 
-  const regionArray = regions?.map((region) => {
-    return { value: region.name, label: region.name }
-  })
+  const regionArray = regions?.map((region) => region.name)
+
   return regionArray
 }

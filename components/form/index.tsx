@@ -7,6 +7,7 @@ import FormSelect from '../formSelect'
 import Button from '../button/Button'
 import Select from 'react-select'
 import { DevTool } from '@hookform/devtools'
+import { useRegionData } from '../../hooks/useRegionData'
 
 // const schema = yup.object({
 //   name: yup.string().required('Nome é obrigatório'),
@@ -71,6 +72,10 @@ const PokemonForm = () => {
     console.log('form submitted', data)
   }
 
+  const regionOptions = useRegionData()?.map((region) => {
+    return { value: region, label: region }
+  })
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -102,14 +107,7 @@ const PokemonForm = () => {
               name="region"
               control={control}
               render={({ field }) => (
-                <Select
-                  {...field}
-                  options={[
-                    { value: 'chocolate', label: 'Chocolate' },
-                    { value: 'strawberry', label: 'Strawberry' },
-                    { value: 'vanilla', label: 'Vanilla' }
-                  ]}
-                />
+                <Select {...field} options={regionOptions} />
               )}
             />
             <FormSelect
@@ -123,20 +121,11 @@ const PokemonForm = () => {
             <Styled.Title>Cadastre seu time</Styled.Title>
             <Styled.SubTitle>Atendemos até 06 pokémons por vez</Styled.SubTitle>
           </Styled.Wrapper>
-          <Controller
+          {/* <Controller
             name="firstPokemon"
             control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={[
-                  { value: 'chocolate', label: 'Chocolate' },
-                  { value: 'strawberry', label: 'Strawberry' },
-                  { value: 'vanilla', label: 'Vanilla' }
-                ]}
-              />
-            )}
-          />
+            render={({ field }) => <Select {...field} options={} />}
+          /> */}
           {/* <div>
           {fields.map((field, index) => {
             return (
@@ -167,7 +156,7 @@ const PokemonForm = () => {
             placeholder="Selecione um horário"
           /> */}
 
-            <Controller
+            {/* <Controller
               name="time"
               control={control}
               render={({ field }) => (
@@ -180,7 +169,7 @@ const PokemonForm = () => {
                   ]}
                 />
               )}
-            />
+            /> */}
           </Styled.Group>
         </Styled.Container>
         <Button

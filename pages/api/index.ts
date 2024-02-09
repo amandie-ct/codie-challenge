@@ -22,14 +22,14 @@ const fetchPokemons = async () => {
 export { fetchPokemons }
 
 const fetchDates = async () => {
-  const response = await axios.get('https://localhost:3000/api/date')
+  const response = await axios.get('http://localhost:3000/api/scheduling/date')
   return response.data
 }
 
 export { fetchDates }
 
 const fetchTime = async () => {
-  const response = await axios.get('https://localhost:3000/api/time')
+  const response = await axios.get('http://localhost:3000/api/scheduling/time')
   return response.data
 }
 

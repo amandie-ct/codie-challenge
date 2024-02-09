@@ -10,6 +10,8 @@ import { useRegionData } from '../../hooks/useRegionData'
 import { useLocationData } from '../../hooks/useCityData'
 import { useState } from 'react'
 import { usePokemonData } from '../../hooks/usePokemonData'
+import { useTimeData } from '../../hooks/useTimeData'
+import { useDatesData } from '../../hooks/useDatesData'
 
 // const schema = yup.object({
 //   name: yup.string().required('Nome é obrigatório'),
@@ -66,6 +68,14 @@ const PokemonForm = () => {
 
   const pokemonOptions = usePokemonData()?.map((pokemon) => {
     return { value: pokemon, label: pokemon }
+  })
+
+  const timeOptions = useTimeData()?.map((time) => {
+    return { value: time, label: time }
+  })
+
+  const dateOptions = useDatesData()?.map((date) => {
+    return { value: date, label: date }
   })
 
   return (
@@ -156,7 +166,7 @@ const PokemonForm = () => {
                   <Select
                     {...field}
                     placeholder="Selecione uma data"
-                    options={pokemonOptions}
+                    options={dateOptions}
                   />
                 )}
               />
@@ -173,7 +183,7 @@ const PokemonForm = () => {
                   <Select
                     {...field}
                     placeholder="Selecione um horário"
-                    options={pokemonOptions}
+                    options={timeOptions}
                   />
                 )}
               />

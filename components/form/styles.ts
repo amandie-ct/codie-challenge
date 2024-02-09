@@ -29,6 +29,7 @@ export const Column = styled.div`
 export const Group = styled.div`
   display: flex;
   align-items: center;
+  border: 1px solid red;
   justify-content: space-between;
 `
 

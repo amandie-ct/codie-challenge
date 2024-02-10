@@ -14,14 +14,16 @@ import { useTimeData } from '../../hooks/useTimeData'
 import { useDatesData } from '../../hooks/useDatesData'
 
 // const schema = yup.object({
-//   name: yup.string().required('Nome é obrigatório'),
+//   firstName: yup.string().required('Nome é obrigatório'),
 //   lastName: yup.string().required('Sobrenome é obrigatório'),
 //   region: yup.string().required('Região é obrigatória'),
 //   city: yup.string().required('Cidade é obrigatória'),
-//   pokemon: yup
+//   firstPokemon: yup.string().required('Adicione no mínimo 1 pokémon)
+//   pokemonName: yup
 //     .array()
-//     .of(yup.string().required('Adicione no mínimo 1 pokémon')),
-//   dateTime: yup.date().default(() => new Date())
+//     .of(yup.string()),
+//   date: yup.date().default(() => new Date())
+// time: yup.string().required('Adicione um horário')
 // })
 
 type FormValues = {
@@ -236,7 +238,7 @@ const PokemonForm = () => {
           />
         </Styled.Group>
       </form>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </>
   )
 }

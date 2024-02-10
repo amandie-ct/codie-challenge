@@ -1,7 +1,7 @@
 // import * as yup from 'yup'
 import * as Styled from './styles'
 // import { yupResolver } from '@hookform/resolvers/yup'
-import { Controller, useForm } from 'react-hook-form'
+import { Controller, useForm, useFieldArray } from 'react-hook-form'
 import FormButton from '../formAddPokemonButton'
 import Button from '../button/Button'
 import Select from 'react-select'
@@ -38,7 +38,7 @@ type FormValues = {
 }
 
 const PokemonForm = () => {
-  const [selectedRegion, setSelectedRegion] = useState<any>()
+  const [selectedRegion, setSelectedRegion] = useState()
 
   const form = useForm<FormValues>({
     defaultValues: {
@@ -58,6 +58,11 @@ const PokemonForm = () => {
   })
   const { register, handleSubmit, control } = form
 
+  const { fields, append } = useFieldArray({
+    name: 'additionalPokemon',
+    control
+  })
+
   const onSubmit = (data: FormValues) => {
     console.log('form submitted', data)
   }
@@ -70,9 +75,9 @@ const PokemonForm = () => {
     return { value: pokemon, label: pokemon }
   })
 
-  const timeOptions = useTimeData()?.map((time) => {
-    return { value: time, label: time }
-  })
+  // const timeOptions = useTimeData()?.map((time) => {
+  //   return { value: time, label: time }
+  // })
 
   const dateOptions = useDatesData()?.map((date) => {
     return { value: date, label: date }
@@ -114,7 +119,7 @@ const PokemonForm = () => {
                   <Select
                     {...field}
                     options={regionOptions}
-                    onChange={(option) => setSelectedRegion(option)}
+                    // onChange={(option) => setSelectedRegion(option)}
                     placeholder="Selecione sua região"
                   />
                 )}
@@ -149,10 +154,41 @@ const PokemonForm = () => {
                   {...field}
                   placeholder="Selecione seu pokémon"
                   options={pokemonOptions}
+                  id="firstPokemon"
                 />
               )}
             />
           </Styled.Group>
+
+          <>
+            {fields.map((field, index) => {
+              return (
+                <Styled.Group className="form-control" key={field.id}>
+                  <Styled.FormLabel htmlFor={`additionalPokemon.${index}`}>
+                    Pokémon 0{index + 2}
+                  </Styled.FormLabel>
+                  <Controller
+                    name={`additionalPokemon.${index}.pokemonName`}
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        {...field}
+                        placeholder="Selecione seu pokémon"
+                        options={pokemonOptions}
+                        id={`additionalPokemon.${index}`}
+                      />
+                    )}
+                  />
+                </Styled.Group>
+              )
+            })}
+            <Styled.Group>
+              <FormButton
+                text="Adicionar novo pokémon ao time"
+                onClick={() => append({ pokemonName: '' })}
+              />
+            </Styled.Group>
+          </>
 
           <Styled.Group>
             <Styled.InputContainer>
@@ -183,19 +219,22 @@ const PokemonForm = () => {
                   <Select
                     {...field}
                     placeholder="Selecione um horário"
-                    options={timeOptions}
+                    // options={timeOptions}
                   />
                 )}
               />
             </Styled.InputContainer>
           </Styled.Group>
         </Styled.Container>
-        <Button
-          button_text="Concluir agendamento"
-          button_link={null}
-          width={11.4}
-          type="submit"
-        />
+        <Styled.Group>
+          <h1> Valor total: R$</h1>
+          <Button
+            button_text="Concluir agendamento"
+            button_link={null}
+            width={11.4}
+            type="submit"
+          />
+        </Styled.Group>
       </form>
       <DevTool control={control} />
     </>

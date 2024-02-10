@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.main`
   padding: 0 3.8rem;
+  height: 100%;
 `
 
 export const Wrapper = styled.div`
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 `
 
 export const Title = styled.p`
@@ -29,7 +30,6 @@ export const Column = styled.div`
 export const Group = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid red;
   justify-content: space-between;
 `
 
@@ -61,4 +61,23 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 16.5625rem;
+`
+
+export const FormSelect = styled.select`
+  width: 16.56rem;
+  height: 2.81rem;
+  padding: 0.81rem 0.88rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.gray};
+  border-radius: ${({ theme }) => theme.border.small_radius};
+  border: 1px solid ${({ theme }) => theme.colors.medium_gray};
+  appearance: none;
+  text-transform: capitalize;
+
+  &:focus {
+    outline: none;
+    cursor: pointer;
+  }
 `

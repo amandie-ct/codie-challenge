@@ -14,8 +14,8 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-html, body, #__next {
-    height: 100%;
+body, #__next {
+    min-height: 100%;
 }
 `
 

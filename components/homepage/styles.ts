@@ -1,7 +1,8 @@
+'use client'
 import styled from 'styled-components'
 
 export const Main = styled.main`
-  background-image: url('/images/pokemon-hero.jpg');
+  background-image: url('images/pokemon-hero.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;

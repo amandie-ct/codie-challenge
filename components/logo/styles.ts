@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 import { ILogoProps } from './index'
 
-export const Logo = styled.div<Pick<ILogoProps, 'isOpen'>>`
+export const Logo = styled.div<Pick<ILogoProps, 'isopen'>>`
   ${($props) =>
-    $props.isOpen &&
+    $props.isopen &&
     css`
       width: 16.1875rem;
       p {

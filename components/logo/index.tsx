@@ -3,22 +3,18 @@ import * as Styled from './styles'
 
 export interface ILogoProps {
   logo_text: string
-  isOpen?: boolean
+  isopen?: boolean
 }
 
-const Logo = ({ logo_text }: ILogoProps) => {
-  const [isOpen, setIsOpen] = useState(true)
-
+const Logo = ({ logo_text, isopen = true }: ILogoProps) => {
   useEffect(() => {
     setTimeout(() => {
-      setIsOpen(false)
+      isopen = false
     }, 5000)
-
-    // return () => clearTimeout()
-  }, [])
+  }, [isopen])
 
   return (
-    <Styled.Logo isOpen={isOpen}>
+    <Styled.Logo isopen={isopen}>
       <img src="/images/white-pokeball.svg" alt="Pokebola" />
       <p>{logo_text}</p>
     </Styled.Logo>

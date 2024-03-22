@@ -20,5 +20,5 @@ export const useRegionData = () => {
 
   const regionArray = regions?.map((region) => region.name)
 
-  return regionArray
+  return { isLoading, regionArray }
 }

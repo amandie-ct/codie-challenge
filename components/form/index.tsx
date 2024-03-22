@@ -41,6 +41,9 @@ type FormValues = {
 
 const PokemonForm = () => {
   const { isLoading, pokemonArray } = usePokemonData()
+  const { isLoading: isLoadingRegion, regionArray } = useRegionData()
+  const [selected, setSelected] = useState('Escolha um pokémon')
+  const [region, setRegion] = useState('Selecione sua região')
 
   const form = useForm<FormValues>({
     defaultValues: {
@@ -68,14 +71,6 @@ const PokemonForm = () => {
   const onSubmit = (data: FormValues) => {
     console.log('form submitted', data)
   }
-
-  const regionOptions = useRegionData()?.map((region) => {
-    return { value: region, label: region }
-  })
-
-  const pokemonOptions = pokemonArray?.map((pokemon) => {
-    return { value: pokemon, label: pokemon }
-  })
 
   // const timeOptions = useTimeData()?.map((time) => {
   //   return { value: time, label: time }
@@ -119,7 +114,7 @@ const PokemonForm = () => {
           <Styled.Group>
             <Styled.InputContainer>
               <Styled.FormLabel htmlFor="region">Região</Styled.FormLabel>
-              <Controller
+              {/* <Controller
                 name="region"
                 control={control}
                 render={({ field }) => (
@@ -130,7 +125,16 @@ const PokemonForm = () => {
                     placeholder="Selecione sua região"
                   />
                 )}
-              />
+              /> */}
+              {isLoadingRegion ? (
+                <h1>carregando...</h1>
+              ) : (
+                <Dropdown
+                  selected={region}
+                  setSelected={setRegion}
+                  options={regionArray}
+                />
+              )}
             </Styled.InputContainer>
             <Styled.InputContainer>
               <Styled.FormLabel htmlFor="city">Cidade</Styled.FormLabel>
@@ -162,7 +166,7 @@ const PokemonForm = () => {
                     <Select
                       {...field}
                       placeholder="Selecione seu pokémon"
-                      options={pokemonOptions}
+                      options={pokemonArray}
                       id="firstPokemon"
                       onChange={handlePokemonChange}
                     />
@@ -186,7 +190,7 @@ const PokemonForm = () => {
                       <Select
                         {...field}
                         placeholder="Selecione seu pokémon"
-                        options={pokemonOptions}
+                        options={pokemonArray}
                         id={`additionalPokemon.${index}`}
                       />
                     )}
@@ -240,7 +244,7 @@ const PokemonForm = () => {
         </Styled.Container>
 
         <Styled.InputContainer>
-          <Dropdown />
+          <Dropdown selected={selected} setSelected={setSelected} />
         </Styled.InputContainer>
 
         <Styled.Group>

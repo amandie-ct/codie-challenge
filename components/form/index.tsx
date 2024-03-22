@@ -72,10 +72,6 @@ const PokemonForm = () => {
     console.log('form submitted', data)
   }
 
-  // const timeOptions = useTimeData()?.map((time) => {
-  //   return { value: time, label: time }
-  // })
-
   const handlePokemonChange = (selectedOption: any) => {
     console.log('handle pokemon change', selectedOption)
     console.log(selectedOption.value)

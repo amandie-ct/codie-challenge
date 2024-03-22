@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { usePokemonData } from '../../hooks/usePokemonData'
 import { useTimeData } from '../../hooks/useTimeData'
 import { useDatesData } from '../../hooks/useDatesData'
+import Dropdown from '../dropdown'
 
 // const schema = yup.object({
 //   firstName: yup.string().required('Nome é obrigatório'),
@@ -237,6 +238,11 @@ const PokemonForm = () => {
             </Styled.InputContainer>
           </Styled.Group>
         </Styled.Container>
+
+        <Styled.InputContainer>
+          <Dropdown />
+        </Styled.InputContainer>
+
         <Styled.Group>
           <h1> Valor total: R$</h1>
           <Button

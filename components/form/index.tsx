@@ -43,9 +43,10 @@ type FormValues = {
 const PokemonForm = () => {
   const { isLoading, pokemonArray } = usePokemonData()
   const { isLoading: isLoadingRegion, regionArray } = useRegionData()
-  const [selected, setSelected] = useState('Escolha um pokémon')
+  const { isLoading: isLoadingDates, dateArray } = useDatesData()
   const [region, setRegion] = useState('Selecione sua região')
   const [city, setCity] = useState('Selecione sua cidade')
+  const [date, setDate] = useState('Selecione uma data')
   const { isLoading: isLoadingCity, cityArray } = useCityData(region)
 
   const form = useForm<FormValues>({
@@ -79,10 +80,6 @@ const PokemonForm = () => {
     console.log('handle pokemon change', selectedOption)
     console.log(selectedOption.value)
   }
-
-  const dateOptions = useDatesData()?.map((date) => {
-    return { value: date, label: date }
-  })
 
   return (
     <>
@@ -125,13 +122,6 @@ const PokemonForm = () => {
             </Styled.InputContainer>
             <Styled.InputContainer>
               <Styled.FormLabel htmlFor="city">Cidade</Styled.FormLabel>
-              {/* <Controller
-                name="city"
-                control={control}
-                render={({ field }) => (
-                  <Select {...field} placeholder="Selecione sua cidade" />
-                )}
-              /> */}
               {isLoadingCity ? (
                 <h1>Carregando...</h1>
               ) : (
@@ -207,17 +197,15 @@ const PokemonForm = () => {
               <Styled.FormLabel htmlFor="date">
                 Data de atendimento
               </Styled.FormLabel>
-              <Controller
-                name="date"
-                control={control}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    placeholder="Selecione uma data"
-                    options={dateOptions}
-                  />
-                )}
-              />
+              {isLoadingDates ? (
+                <h1>Carregando...</h1>
+              ) : (
+                <Dropdown
+                  selected={date}
+                  setSelected={setDate}
+                  options={dateArray}
+                />
+              )}
             </Styled.InputContainer>
 
             <Styled.InputContainer>

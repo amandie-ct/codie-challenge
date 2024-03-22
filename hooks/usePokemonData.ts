@@ -20,5 +20,5 @@ export const usePokemonData = () => {
 
   const pokemonArray = pokemons?.map((pokemon) => pokemon.name)
 
-  return pokemonArray
+  return { pokemonArray, isLoading }
 }

@@ -1,13 +1,12 @@
 // import * as yup from 'yup'
 import * as Styled from './styles'
+import { DevTool } from '@hookform/devtools'
 // import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, useForm, useFieldArray } from 'react-hook-form'
 import FormButton from '../formAddPokemonButton'
 import Button from '../button/Button'
 import Select from 'react-select'
-import { DevTool } from '@hookform/devtools'
 import { useRegionData } from '../../hooks/useRegionData'
-import { useLocationData } from '../../hooks/useCityData'
 import { useState } from 'react'
 import { usePokemonData } from '../../hooks/usePokemonData'
 import { useTimeData } from '../../hooks/useTimeData'
@@ -40,7 +39,7 @@ type FormValues = {
 }
 
 const PokemonForm = () => {
-  const [selectedRegion, setSelectedRegion] = useState()
+  const { isLoading, pokemonArray } = usePokemonData()
 
   const form = useForm<FormValues>({
     defaultValues: {
@@ -73,13 +72,18 @@ const PokemonForm = () => {
     return { value: region, label: region }
   })
 
-  const pokemonOptions = usePokemonData()?.map((pokemon) => {
+  const pokemonOptions = pokemonArray?.map((pokemon) => {
     return { value: pokemon, label: pokemon }
   })
 
   // const timeOptions = useTimeData()?.map((time) => {
   //   return { value: time, label: time }
   // })
+
+  const handlePokemonChange = (selectedOption: any) => {
+    console.log('handle pokemon change', selectedOption)
+    console.log(selectedOption.value)
+  }
 
   const dateOptions = useDatesData()?.map((date) => {
     return { value: date, label: date }
@@ -145,21 +149,26 @@ const PokemonForm = () => {
           </Styled.Wrapper>
 
           <Styled.Group>
-            <Styled.FormLabel htmlFor="firstPokemon">
-              Pokémon 01
-            </Styled.FormLabel>
-            <Controller
-              name="firstPokemon"
-              control={control}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  placeholder="Selecione seu pokémon"
-                  options={pokemonOptions}
-                  id="firstPokemon"
+            {!isLoading && (
+              <>
+                <Styled.FormLabel htmlFor="firstPokemon">
+                  Pokémon 01
+                </Styled.FormLabel>
+                <Controller
+                  name="firstPokemon"
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      placeholder="Selecione seu pokémon"
+                      options={pokemonOptions}
+                      id="firstPokemon"
+                      onChange={handlePokemonChange}
+                    />
+                  )}
                 />
-              )}
-            />
+              </>
+            )}
           </Styled.Group>
 
           <>
@@ -238,7 +247,7 @@ const PokemonForm = () => {
           />
         </Styled.Group>
       </form>
-      {/* <DevTool control={control} /> */}
+      <DevTool control={control} />
     </>
   )
 }

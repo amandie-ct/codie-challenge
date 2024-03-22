@@ -18,7 +18,7 @@ export const useDatesData = () => {
     queryFn: () => fetchDates()
   })
 
-  const dateArray = dates?.map((date) => date)
+  const dateArray = dates?.map((date) => date.date)
 
   return { isLoading, dateArray }
 }

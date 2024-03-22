@@ -12,6 +12,7 @@ import { usePokemonData } from '../../hooks/usePokemonData'
 import { useTimeData } from '../../hooks/useTimeData'
 import { useDatesData } from '../../hooks/useDatesData'
 import Dropdown from '../dropdown'
+import { useCityData } from '../../hooks/useCityData'
 
 // const schema = yup.object({
 //   firstName: yup.string().required('Nome é obrigatório'),
@@ -44,6 +45,8 @@ const PokemonForm = () => {
   const { isLoading: isLoadingRegion, regionArray } = useRegionData()
   const [selected, setSelected] = useState('Escolha um pokémon')
   const [region, setRegion] = useState('Selecione sua região')
+  const [city, setCity] = useState('Selecione sua cidade')
+  const { isLoading: isLoadingCity, cityArray } = useCityData(region)
 
   const form = useForm<FormValues>({
     defaultValues: {
@@ -110,18 +113,6 @@ const PokemonForm = () => {
           <Styled.Group>
             <Styled.InputContainer>
               <Styled.FormLabel htmlFor="region">Região</Styled.FormLabel>
-              {/* <Controller
-                name="region"
-                control={control}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    options={regionOptions}
-                    // onChange={(option) => setSelectedRegion(option)}
-                    placeholder="Selecione sua região"
-                  />
-                )}
-              /> */}
               {isLoadingRegion ? (
                 <h1>carregando...</h1>
               ) : (
@@ -134,13 +125,22 @@ const PokemonForm = () => {
             </Styled.InputContainer>
             <Styled.InputContainer>
               <Styled.FormLabel htmlFor="city">Cidade</Styled.FormLabel>
-              <Controller
+              {/* <Controller
                 name="city"
                 control={control}
                 render={({ field }) => (
                   <Select {...field} placeholder="Selecione sua cidade" />
                 )}
-              />
+              /> */}
+              {isLoadingCity ? (
+                <h1>Carregando...</h1>
+              ) : (
+                <Dropdown
+                  selected={city}
+                  setSelected={setCity}
+                  options={cityArray}
+                />
+              )}
             </Styled.InputContainer>
           </Styled.Group>
 
@@ -238,10 +238,6 @@ const PokemonForm = () => {
             </Styled.InputContainer>
           </Styled.Group>
         </Styled.Container>
-
-        <Styled.InputContainer>
-          <Dropdown selected={selected} setSelected={setSelected} />
-        </Styled.InputContainer>
 
         <Styled.Group>
           <h1> Valor total: R$</h1>

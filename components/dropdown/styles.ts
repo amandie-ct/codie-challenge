@@ -27,6 +27,9 @@ export const DropdownBtn = styled.div`
 
 export const DropdownContent = styled.div`
   width: 100%;
+  max-height: 7.5rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: ${({ theme }) => theme.colors.white};
   box-sizing: border-box;
   position: absolute;
@@ -41,6 +44,11 @@ export const DropdownContent = styled.div`
   border-bottom-left-radius: ${({ theme }) => theme.border.small_radius};
   border-bottom-right-radius: ${({ theme }) => theme.border.small_radius};
   padding-bottom: 5px;
+
+  &::-webkit-scrollbar {
+    width: 0.1rem;
+    height: 0.5em;
+  }
 `
 
 export const DropdownItem = styled.div`

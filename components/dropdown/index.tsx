@@ -12,7 +12,7 @@ const Dropdown = ({ selected, setSelected, options }: IDropdown) => {
 
   return (
     <Styled.Dropdown>
-      <Styled.DropdownBtn onClick={(e: any) => setActive(!active)}>
+      <Styled.DropdownBtn onClick={() => setActive(!active)}>
         {selected}
         <span>V</span>
       </Styled.DropdownBtn>
@@ -23,7 +23,7 @@ const Dropdown = ({ selected, setSelected, options }: IDropdown) => {
               return (
                 <Styled.DropdownItem
                   key={option}
-                  onClick={(e) => {
+                  onClick={() => {
                     setSelected(option)
                     setActive(false)
                   }}

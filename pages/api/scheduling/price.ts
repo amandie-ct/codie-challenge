@@ -1,4 +1,4 @@
-const Payment = (pokemonNumber: number, pokemonGeneration: number) => {
+export const Payment = (pokemonNumber: number, pokemonGeneration: number) => {
   let pricePerPokemon = 70 * pokemonNumber
   let generationalTax = pokemonGeneration * 0.03
 

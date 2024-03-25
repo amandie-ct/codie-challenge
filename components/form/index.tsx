@@ -9,7 +9,7 @@ import Select from 'react-select'
 import { useRegionData } from '../../hooks/useRegionData'
 import { useState } from 'react'
 import { usePokemonData } from '../../hooks/usePokemonData'
-import { useTimeData } from '../../hooks/useTimeData'
+// import { useTimeData } from '../../hooks/useTimeData'
 import { useDatesData } from '../../hooks/useDatesData'
 import Dropdown from '../dropdown'
 import { useCityData } from '../../hooks/useCityData'
@@ -44,6 +44,7 @@ const PokemonForm = () => {
   const { isLoading, pokemonArray } = usePokemonData()
   const { isLoading: isLoadingRegion, regionArray } = useRegionData()
   const { isLoading: isLoadingDates, dateArray } = useDatesData()
+  const [pokemon, setPokemon] = useState('Selecione seu pokémon')
   const [region, setRegion] = useState('Selecione sua região')
   const [city, setCity] = useState('Selecione sua cidade')
   const [date, setDate] = useState('Selecione uma data')
@@ -74,11 +75,6 @@ const PokemonForm = () => {
 
   const onSubmit = (data: FormValues) => {
     console.log('form submitted', data)
-  }
-
-  const handlePokemonChange = (selectedOption: any) => {
-    console.log('handle pokemon change', selectedOption)
-    console.log(selectedOption.value)
   }
 
   return (
@@ -145,7 +141,7 @@ const PokemonForm = () => {
                 <Styled.FormLabel htmlFor="firstPokemon">
                   Pokémon 01
                 </Styled.FormLabel>
-                <Controller
+                {/* <Controller
                   name="firstPokemon"
                   control={control}
                   render={({ field }) => (
@@ -157,6 +153,11 @@ const PokemonForm = () => {
                       onChange={handlePokemonChange}
                     />
                   )}
+                /> */}
+                <Dropdown
+                  selected={pokemon}
+                  setSelected={setPokemon}
+                  options={pokemonArray}
                 />
               </>
             )}
@@ -169,7 +170,7 @@ const PokemonForm = () => {
                   <Styled.FormLabel htmlFor={`additionalPokemon.${index}`}>
                     Pokémon 0{index + 2}
                   </Styled.FormLabel>
-                  <Controller
+                  {/* <Controller
                     name={`additionalPokemon.${index}.pokemonName`}
                     control={control}
                     render={({ field }) => (
@@ -180,6 +181,11 @@ const PokemonForm = () => {
                         id={`additionalPokemon.${index}`}
                       />
                     )}
+                  /> */}
+                  <Dropdown
+                    selected={pokemon}
+                    setSelected={setPokemon}
+                    options={pokemonArray}
                   />
                 </Styled.Group>
               )
@@ -212,7 +218,7 @@ const PokemonForm = () => {
               <Styled.FormLabel htmlFor="time">
                 Horário de atendimento
               </Styled.FormLabel>
-              <Controller
+              {/* <Controller
                 name="time"
                 control={control}
                 render={({ field }) => (
@@ -222,7 +228,7 @@ const PokemonForm = () => {
                     // options={timeOptions}
                   />
                 )}
-              />
+              /> */}
             </Styled.InputContainer>
           </Styled.Group>
         </Styled.Container>

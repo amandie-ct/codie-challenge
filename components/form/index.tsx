@@ -2,10 +2,9 @@
 import * as Styled from './styles'
 import { DevTool } from '@hookform/devtools'
 // import { yupResolver } from '@hookform/resolvers/yup'
-import { Controller, useForm, useFieldArray } from 'react-hook-form'
+import { useForm, useFieldArray } from 'react-hook-form'
 import FormButton from '../formAddPokemonButton'
 import Button from '../button/Button'
-import Select from 'react-select'
 import { useRegionData } from '../../hooks/useRegionData'
 import { useState } from 'react'
 import { usePokemonData } from '../../hooks/usePokemonData'
@@ -43,7 +42,7 @@ type FormValues = {
 const PokemonForm = () => {
   const { isLoading, pokemonArray } = usePokemonData()
   const { isLoading: isLoadingRegion, regionArray } = useRegionData()
-  const { isLoading: isLoadingDates, dateArray } = useDatesData()
+  // const { isLoading: isLoadingDates, dateArray } = useDatesData()
   const [pokemon, setPokemon] = useState('Selecione seu pokémon')
   const [region, setRegion] = useState('Selecione sua região')
   const [city, setCity] = useState('Selecione sua cidade')
@@ -203,15 +202,15 @@ const PokemonForm = () => {
               <Styled.FormLabel htmlFor="date">
                 Data de atendimento
               </Styled.FormLabel>
-              {isLoadingDates ? (
-                <h1>Carregando...</h1>
-              ) : (
-                <Dropdown
-                  selected={date}
-                  setSelected={setDate}
-                  // options={dateArray}
-                />
-              )}
+              {/* {isLoadingDates ? ( */}
+              <h1>Carregando...</h1>
+              {/* ) : ( */}
+              <Dropdown
+                selected={date}
+                setSelected={setDate}
+                // options={dateArray}
+              />
+              {/* )} */}
             </Styled.InputContainer>
 
             <Styled.InputContainer>

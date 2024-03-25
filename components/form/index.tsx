@@ -111,7 +111,7 @@ const PokemonForm = () => {
             <Styled.InputContainer>
               <Styled.FormLabel htmlFor="region">Região</Styled.FormLabel>
               {isLoadingRegion ? (
-                <h1>carregando...</h1>
+                <h1>Carregando...</h1>
               ) : (
                 <Dropdown
                   selected={region}
@@ -203,7 +203,7 @@ const PokemonForm = () => {
                 <Dropdown
                   selected={date}
                   setSelected={setDate}
-                  options={dateArray}
+                  // options={dateArray}
                 />
               )}
             </Styled.InputContainer>

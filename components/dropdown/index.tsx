@@ -3,7 +3,7 @@ import * as Styled from './styles'
 
 interface IDropdown {
   selected: string
-  options: string[] | undefined
+  options?: string[] | undefined
   setSelected: any
 }
 

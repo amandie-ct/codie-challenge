@@ -1,16 +1,10 @@
-import styled, { css } from 'styled-components'
-import { ILogoProps } from './index'
+import styled from 'styled-components'
 
-export const Logo = styled.div<Pick<ILogoProps, 'isopen'>>`
-  ${($props) =>
-    $props.isopen &&
-    css`
-      width: 16.1875rem;
-      p {
-        display: block;
-      }
-    `}
-
+export const Logo = styled.div`
+  width: 16.1875rem;
+  p {
+    display: block;
+  }
   display: flex;
   align-items: center;
   justify-content: center;

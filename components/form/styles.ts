@@ -57,10 +57,17 @@ export const Input = styled.input`
     outline: none;
   }
 `
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 395px;
+`
+
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 16.5625rem;
+  width: 300px;
+  border: 1px solid red;
 `
 
 export const FormSelect = styled.select`

@@ -81,7 +81,7 @@ const PokemonForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Styled.Container>
           <Styled.Group>
-            <Styled.InputContainer>
+            <Styled.InputWrapper>
               <Styled.FormLabel htmlFor="firstName">Nome</Styled.FormLabel>
               <Styled.Input
                 placeholder="Digite seu nome"
@@ -89,9 +89,9 @@ const PokemonForm = () => {
                 {...register('firstName')}
                 type="text"
               />
-            </Styled.InputContainer>
+            </Styled.InputWrapper>
 
-            <Styled.InputContainer>
+            <Styled.InputWrapper>
               <Styled.FormLabel htmlFor="lastName">Sobrenome</Styled.FormLabel>
               <Styled.Input
                 placeholder="Digite seu sobrenome"
@@ -99,7 +99,7 @@ const PokemonForm = () => {
                 {...register('lastName')}
                 type="text"
               />
-            </Styled.InputContainer>
+            </Styled.InputWrapper>
           </Styled.Group>
 
           <Styled.Group>

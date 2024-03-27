@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Dropdown = styled.div`
   margin: 0 auto;
-  width: 400px;
+  width: 390px;
   position: relative;
 `
 

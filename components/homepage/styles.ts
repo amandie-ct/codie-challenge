@@ -2,9 +2,6 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
-  background-image: url('images/pokemon-hero.jpg');
-  background-size: cover;
-  background-position: center;
   width: 100%;
   height: 100%;
   position: relative;
@@ -23,4 +20,8 @@ export const MainCaption = styled.h1`
   font-weight: 700;
   line-height: normal;
   width: 32rem;
+`
+
+export const Cover = styled.img`
+  object-fit: cover;
 `

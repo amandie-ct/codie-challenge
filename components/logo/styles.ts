@@ -2,9 +2,6 @@ import styled from 'styled-components'
 
 export const Logo = styled.div`
   width: 16.1875rem;
-  p {
-    display: block;
-  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +13,6 @@ export const Logo = styled.div`
   height: 3.8125rem;
 
   p {
-    display: none;
     margin-left: 1.19rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -25,7 +21,7 @@ export const Logo = styled.div`
   &:hover {
     cursor: pointer;
     width: 16.1875rem;
-    transition: width 2s linear 3s;
+    transition: width 2s;
     p {
       display: block;
     }

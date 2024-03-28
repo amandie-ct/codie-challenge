@@ -232,7 +232,28 @@ const PokemonForm = () => {
           </Styled.Group>
         </Styled.Container>
 
-        <Styled.Group>
+        <Styled.Summary>
+          <hr></hr>
+          <Styled.SummaryRows>
+            <p>Número de pokémons a serem atendidos:</p>
+            <p>01</p>
+          </Styled.SummaryRows>
+          <Styled.SummaryRows>
+            <p>Atendimento unitário por pokémon:</p>
+            <p>R$70,00</p>
+          </Styled.SummaryRows>
+          <Styled.SummaryRows>
+            <p>Subtotal:</p>
+            <p>R$70,00</p>
+          </Styled.SummaryRows>
+          <Styled.SummaryRows>
+            <p>Taxa geracional*:</p>
+            <p>R$2,10</p>
+          </Styled.SummaryRows>
+          <p>
+            *adicionamos uma taxa de 3% , multiplicado pelo número da geração
+            mais alta do time, com limite de até 30%
+          </p>
           <h1> Valor total: R$</h1>
           <Button
             button_text="Concluir agendamento"
@@ -240,7 +261,7 @@ const PokemonForm = () => {
             width={11.4}
             type="submit"
           />
-        </Styled.Group>
+        </Styled.Summary>
       </form>
       <DevTool control={control} />
     </>

@@ -4,6 +4,7 @@ export const Dropdown = styled.div`
   margin: 0 auto;
   width: 390px;
   position: relative;
+  max-width: 100%;
 `
 
 export const DropdownBtn = styled.div`

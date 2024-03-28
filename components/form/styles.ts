@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.main`
   padding: 0 3.8rem;
   height: 100%;
+  margin: 0 auto;
 `
 
 export const Wrapper = styled.div`
@@ -22,15 +23,11 @@ export const SubTitle = styled(Title)`
   color: ${({ theme }) => theme.colors.gray};
 `
 
-export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
 export const Group = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid black;
 `
 
 export const FormLabel = styled.label`
@@ -59,15 +56,22 @@ export const Input = styled.input`
 `
 export const InputWrapper = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
-  width: 395px;
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
 `
 
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 300px;
-  border: 1px solid red;
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
 `
 
 export const FormSelect = styled.select`
@@ -86,5 +90,19 @@ export const FormSelect = styled.select`
   &:focus {
     outline: none;
     cursor: pointer;
+  }
+`
+
+export const Summary = styled.section`
+  display: flex;
+  flex-direction: column;
+`
+export const SummaryRows = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    color: ${({ theme }) => theme.colors.gray};
+    margin: 4px 0;
   }
 `

@@ -21,7 +21,7 @@ export const Logo = styled.div`
   &:hover {
     cursor: pointer;
     width: 16.1875rem;
-    transition: width 2s;
+    transition: 0.3s width ease-in-out;
     p {
       display: block;
     }

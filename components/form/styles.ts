@@ -6,7 +6,7 @@ export const Container = styled.main`
 `
 
 export const Wrapper = styled.div`
-  margin: 1.5rem 0;
+  margin-top: 8rem;
 `
 
 export const Title = styled.p`

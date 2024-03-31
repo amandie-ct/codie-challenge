@@ -1,5 +1,5 @@
 import Breadcrumbs from '../../components/breadcrumbs'
-import * as Styled from './styles'
+import * as Styled from '../../pageStyles/appointment'
 import PokemonForm from '../../components/form'
 
 const Appointment = () => {

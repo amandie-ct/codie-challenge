@@ -27,7 +27,6 @@ export const Group = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
 `
 
 export const FormLabel = styled.label`
@@ -96,6 +95,13 @@ export const FormSelect = styled.select`
 export const Summary = styled.section`
   display: flex;
   flex-direction: column;
+  margin: 32px 0;
+
+  span {
+    color: ${({ theme }) => theme.colors.gray};
+    font: 8px;
+    font-weight: 400;
+  }
 `
 export const SummaryRows = styled.div`
   display: flex;

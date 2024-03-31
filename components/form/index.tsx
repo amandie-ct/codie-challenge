@@ -250,10 +250,10 @@ const PokemonForm = () => {
             <p>Taxa geracional*:</p>
             <p>R$2,10</p>
           </Styled.SummaryRows>
-          <p>
+          <span>
             *adicionamos uma taxa de 3% , multiplicado pelo número da geração
             mais alta do time, com limite de até 30%
-          </p>
+          </span>
           <h1> Valor total: R$</h1>
           <Button
             button_text="Concluir agendamento"

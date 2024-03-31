@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import Card from '../../../components/card'
-import * as Styled from './styles'
+import * as Styled from '../../../pageStyles/status'
 import Breadcrumbs from '../../../components/breadcrumbs'
 
 const Status = () => {
